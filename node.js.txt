@@ -1,0 +1,13 @@
+
+
+
+cwd = process.cwd() : 当前执行node命令时候的文件夹地址
+
+__dirname ： 被执行的js文件（夹）地址
+
+__filename:  被执行的js文件（）地址
+
+
+path = require('path');  http://www.runoob.com/nodejs/nodejs-path-module.html
+
+path.join(__dirname, 'apps')：用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"

@@ -47,7 +47,9 @@ module.exports = {
         plugins.push(new ExtractTextPlugin(options.styleFileName || "/build/[name].css"));
         //plugins.push(this._getExtractTextPlugin(options.styleFileName));
 
-        plugins.push(new webpack.optimize.DedupePlugin());
+        plugins.push(new webpack.optimize.DedupePlugin());  //有些JS库有自己的依赖树，并且这些库可能有交叉的依赖，DedupePlugin可以找出他们并删除重复的依赖
+
+
         //使用dll动态库打包
         plugins.push(new webpack.DllReferencePlugin({
             context: options.manifestContext || rootPath,
@@ -155,7 +157,7 @@ module.exports = {
                  
                 chunkFilename: "/build/[name]_[hash].chunk.js"
             },
-            //配置需要从外部引用的模块
+            //配置需要从外部引用的模块  既不需要打包进去的模块
             externals: this.getDefaultExternals(options.externals), 
             module: {
                 //noParse: ["react-hot-api"],

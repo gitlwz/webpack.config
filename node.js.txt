@@ -11,3 +11,10 @@ __filename:  被执行的js文件（）地址
 path = require('path');  http://www.runoob.com/nodejs/nodejs-path-module.html
 
 path.join(__dirname, 'apps')：用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"
+
+
+ExtractTextPlugin   { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }在loader中的使用方法
+在plugins中 new ExtractTextPlugin('stylesheets/[name].css');即打包后css所在位置可以使用占位符
+
+
+new webpack.DefinePlugin   接收字符串插入到代码当中, 所以你需要的话可以写上 JS 的字符串

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="src/css/list.css" type="text/css" />
+    <div class="search-box">
+      <button class="btn select-box-one" ng-click="select(0)">全部</button>
+      <button class="btn" ng-click="select(1)">精华</button>
+      <button class="btn" ng-click="select(2)">分享</button>
+      <button class="btn" ng-click="select(3)">问答</button>
+      <button class="btn" ng-click="select(4)">招聘</button>
+    </div>
+    <div class="list-box" id="listBox">
+       <ul>
+        <li ng-repeat="item in data">
+          <a href="#/detailCtrl?id={{item.id}}">
+           <dl>
+            <dt class="search-key-img">
+              <img ng-src={{item.author.avatar_url}}>
+            </dt> 
+            <dd class="search-key-title">
+               <p>{{item.title}}</p>
+              </dd>
+              <dd class="search-key-info">
+                <span class="search-key-info-time">{{item.tab}}</span>
+                <span class="search-key-info-tab">{{item.create_at | time }}</span> 
+              </dd>
+            </dl>
+          </a>
+        </li>
+       </ul>
+        <p class="get-more" ng-click="getMore()">上拉加载更多</p>
+    </div>
+
+    <!-- <div geo refresh="refreshGeo()"></div> -->
